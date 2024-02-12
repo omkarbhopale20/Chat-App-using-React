@@ -22,18 +22,16 @@ const Register = () => {
     try{
       const res = await createUserWithEmailAndPassword(auth, email, password);
       
-const storageRef = ref(storage, displayName);
+      const storageRef = ref(storage, displayName);
 
-const uploadTask = uploadBytesResumable(storageRef, file);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-// Register three observers:
-
-uploadTask.on(
+    uploadTask.on(
   
-  (error) => {
-    setErr(true);
-  }, 
-  () => {
+    (error) => {
+      setErr(true);
+    }, 
+    () => {
     // Handle successful uploads 
     //  get the download URL
     getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
@@ -41,12 +39,17 @@ uploadTask.on(
         displayName,  
         photoURL:downloadURL,
       });
+
+      // Registered users are stored in "users" database in firabase so that current user can find other users and chat with them
+
       await setDoc(doc(db, "users" , res.user.uid),{
         uid: res.user.uid,
         displayName,
         email,
         photoURL:downloadURL,
       });
+
+      //when registered userChats collection is created for it
       await setDoc(doc(db,"userChats",res.user.uid),{});
 
       navigate("/")
@@ -54,7 +57,6 @@ uploadTask.on(
     });
   }
 );
-
   
     }
     catch(err){

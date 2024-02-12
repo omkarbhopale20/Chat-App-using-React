@@ -9,12 +9,15 @@ import {v4 as uuid} from "uuid"
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 
 const Input = () => {
+
+  // Send text and images
   const[text, setText] = useState("");
   const [img , setImg] = useState(null);
 
   const {currentUser} = useContext(AuthContext)
   const {data} = useContext(ChatContext)
 
+  //Message types: Two Conditions - 1) Image only or image and text & 2) Only Text
   const handleSend = async()=>{
 
     if(img){
@@ -54,7 +57,7 @@ const Input = () => {
     }
 
     await updateDoc(doc(db,"userChats",currentUser.uid),{
-      [data.chatId + ".lastMessage"]:{
+      [data.chatId +".lastMessage"]:{
         text
       },
       [data.chatId+".date"]:serverTimestamp(),

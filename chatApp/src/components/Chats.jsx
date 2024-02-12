@@ -21,14 +21,14 @@ const Chats = () => {
       });
   
       return ()=> {
-        unsub()
+        unsub();
       };
     };
 
     currentUser.uid && getChats()
   },[currentUser.uid]);
   
-
+  //console.log(Object.entries(chats));
   const handleSelect = (u) =>{
     if(u && u.displayName && u.photoURL ){
       dispatch({type:"CHANGE_USER", payload:u});
@@ -36,18 +36,21 @@ const Chats = () => {
       console.error("Invalid user object:", u);
     }
     
+    
   };
   //console.log("Chats component - chats state:", chats); 
-  
+ 
 //{Object.entries(chats)?.map(chat=>(
+
+// .userInfo used
   return (
     <div className='chats'> 
       {Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat)=>(
         chat[1] && (
-        <div className='userChat' key={chat[0]} onClick={()=>handleSelect(chat[1])}>
-          <img src={chat[1].photoURL}/>
+        <div className='userChat' key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
+          <img src={chat[1].userInfo.photoURL}/>
           <div className="userChatInfo">
-            <span>{chat[1].displayName}</span>
+            <span>{chat[1].userInfo.displayName}</span>
             <p>{chat[1].lastMessage?.text}</p>
           </div>
         </div> 

@@ -8,6 +8,7 @@ const Message = ({message}) => {
   const {data} = useContext(ChatContext);
   const [timeAgo , setTimeAgo] = useState('');
 
+  // useRef hook to scroll latest message in chat
   const ref = useRef();
 
   useEffect(() =>{

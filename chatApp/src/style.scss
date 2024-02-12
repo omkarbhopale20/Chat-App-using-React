@@ -1,4 +1,4 @@
-// Scss function for responsive website
+// Scss function for responsive website and u can style children inside parents
 
 @mixin mobile {
     @media screen and (max-width:480px){
@@ -17,6 +17,9 @@
         @content;
     }
 }
+
+
+// Register Page Style
 
 .formContainer{
     background-color: #a7bcff;
@@ -115,6 +118,7 @@
             width: 90%;;
         }
 
+        
         .sidebar{
             flex:1;
             background-color: #323157;
@@ -166,6 +170,7 @@
                 }
             }
 
+            // navbar in sidebar 
             .navbar{
                 display: flex;
                 align-items: center;
@@ -276,6 +281,7 @@
                            width: 50%; 
                         }
                     }
+                    // for owner msg displayed to right side
                     &.owner{
                         flex-direction: row-reverse;
 
@@ -291,6 +297,8 @@
                     }            
                 }
             }
+
+            //Input component in chat 
             .input{
                 height: 50px;
                 padding: 10px;

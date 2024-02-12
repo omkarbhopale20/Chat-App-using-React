@@ -9,6 +9,8 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+
+  // Logs in user if already registed using firebase auth
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const email = (e.target[0].value);

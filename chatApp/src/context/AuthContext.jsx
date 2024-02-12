@@ -13,13 +13,14 @@ export const AuthContextProvider = ({children}) =>{
             // console.log(user);
         });
 
+        // cleanup function to avoide memory leaking
         return () =>{
             unsub();
         }
     }, []);
 
 
-    // All components can reach current user
+    // Any components can reach current user
 
     return (
         <AuthContext.Provider value={{currentUser}}>

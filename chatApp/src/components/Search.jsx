@@ -12,10 +12,12 @@ const Search = () => {
 
   const {currentUser} = useContext(AuthContext)
 
+
+  //Query to search the user from users database
   const handleSearch = async() =>{
     const q = query(
       collection(db, "users"),
-      where("displayName", "==",username)
+      where("displayName", "==", username)
     );
 
     try{
@@ -26,15 +28,14 @@ const Search = () => {
     }
     catch(err){
       setErr(true)
-    }
-
-    
+    }   
   };
   
 
   const handleKey = (e) =>{
     e.code === "Enter" && handleSearch();
   };
+
   const handleSelect = async()=>{
     // check weather the group (chats in firestore) exists, if not create
     const combinedId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid;
@@ -88,18 +89,19 @@ const Search = () => {
             <span>{user.displayName}</span>
         </div>
       </div>} */}
-      {user && user.displayName && user.photoURL && (
+      
+      {user &&  
         <div className='userChats' key={user.uid} onClick={() => handleSelect(user)}>
           <img src={user.photoURL} alt="" />
           <div className="userChatInfo">
           <span>{user.displayName}</span>
           </div>
         </div>
-      )}
+      }
 
 
     </div>
   )
 }
-
+// user.displayName && user.photoURL &&
 export default Search

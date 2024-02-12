@@ -13,6 +13,8 @@ import {
 function App() {
 
   const {currentUser} = useContext(AuthContext)
+
+  // When no current user navigate to login page
   const ProtectedRoute = ({children}) =>{
     if(!currentUser){
       return <Navigate to="/login" />
@@ -20,6 +22,7 @@ function App() {
     return children;
   }
 
+  // Use React-router-dom to navigate to different pages
   return (
     <BrowserRouter>
     <Routes>
