@@ -49,6 +49,28 @@
   <li><b>Access Application : Open http://localhost:5173 in your web browser to access the application.</b></li>
 </ol>
 
+
+  <h3>ScreenShots</h3>
+
+<h5>Register Page</h5>
+
+![Screenshot (232)](https://github.com/omkarbhopale20/Chat-App-using-React/assets/127376618/c5b13a1e-847d-4ea9-b7d9-6a8ce130a432)
+
+<h5>Login Page</h5>
+
+![Screenshot (233)](https://github.com/omkarbhopale20/Chat-App-using-React/assets/127376618/86058f8c-bc52-40b1-a1d2-64f13c448b6e)
+
+<h5>Home Page</h5>
+<p>Current User</p>
+
+![Screenshot (237)](https://github.com/omkarbhopale20/Chat-App-using-React/assets/127376618/38eec1cc-73f9-4d22-99bf-b7c6aad13452)
+
+<p>Other User</p>
+
+![Screenshot (238)](https://github.com/omkarbhopale20/Chat-App-using-React/assets/127376618/a607a017-dac5-4003-abaf-1ee42da9ee1d)
+
+
 <h3>Contributing</h3>
 <p>Contributions to this project are welcome! If you have any ideas for improvements or new features, feel free to fork this repository, make your changes, and submit a pull request.</p>
-  
+
+
